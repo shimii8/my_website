@@ -1,0 +1,337 @@
+@charset "UTF-8";
+
+body{
+    font-family: sans-serif;
+    color: rgb(10, 13, 60);
+}
+
+h1.main,h2.main{
+    background-color:#EDEDED;
+    border-color: chocolate;
+    border-style: solid;
+    border-width:0 0 0 10px;
+    padding: 10px; margin: 25px 5px;
+}
+
+h1.main{
+    font-size: 24px;
+}
+
+h2{
+    font-size: 22px;
+}
+
+h1.sub{
+    background-color:#EDEDED;
+    border-color: rgb(116, 171, 222);
+    border-style: solid;
+    border-width:0 0 0 10px;
+    padding: 10px; margin: 25px 5px;
+    font-size: 24px;
+}
+
+h2.sub{
+    padding: 10px; margin: 25px 5px;
+}
+
+h3{
+    background-color:#EDEDED;
+    border-color: rgb(116, 171, 222);
+    border-style: solid;
+    border-width:0 0 0 10px;
+    padding: 10px;margin: 5px 5px;
+    font-size:22px;
+}
+
+ul{
+    line-height: 25px;
+    padding: 0 100px;
+}
+
+p.main,p.sub{
+    font-size: 18px;
+    line-height: 20px;
+    padding: 0 50px;
+}
+
+p.back{
+    font-size: 16px;
+    padding: 0 20px;
+}
+
+table td{
+    padding: 3px;
+    border: solid 1px #113366;
+}
+
+table{
+    border-collapse: collapse;
+    padding: 10px;margin: auto;
+}
+
+img{
+    box-shadow: 0 0 6px #333;
+    margin: 0 15px;
+}
+
+video,iframe{
+    margin: 0 20px;
+}
+
+footer{
+    padding: 0 30px;
+}
+
+ul {
+    list-style-position: inside;  /* 点を内側に配置 */
+    padding-left: 40px;           /* 余白を減らす */
+    line-height: 25px;
+}
+
+ul li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;           /* 点とボタンを縦方向中央揃え */
+}
+
+/* ====== ボタン（既存の見た目を維持） ====== */
+ul li a.work-button {
+    margin-left: 8px;              /* 点との間に少し余白 */
+    display: inline-block;
+    background: #4a90e2;
+    color: #fff !important;
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px #357ac6;
+    transition: all 0.15s ease-in-out;
+}
+
+ul li a.work-button:hover {
+    background: #5ba1f0;
+}
+
+ul li a.work-button:active {
+    box-shadow: 0 1px #2c68aa;
+    transform: translateY(3px);
+}
+
+/* ====== 作品カード ====== */
+.works-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 20px 60px;
+}
+
+.work-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.work-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.work-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.work-info {
+  padding: 16px 20px;
+}
+
+.work-info h3 {
+  font-size: 17px;
+  color: #336699;
+  margin-bottom: 8px;
+}
+
+.work-info p {
+  font-size: 16px;
+  color: #555;
+  font-style: italic;
+}
+
+/* ====== 作品カードのホバーアニメーション ====== */
+.work-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.work-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.work-card:hover img {
+  transform: scale(1.08);
+}
+
+/* ====== 作品カードの全体配置調整 ====== */
+.works-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* 左揃え */
+  gap: 40px;
+  padding-left: 60px; /* 全体を少しだけ左に寄せる */
+}
+
+/* ====== カード内の画像位置調整 ====== */
+.work-card img {
+  display: block;
+  margin: 0 auto 20px 0; /* 左寄せに変更（auto→0） */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ====== カード自体の整列と影調整 ====== */
+.work-card {
+  background-color: #5a9bea;
+  color: #fff;
+  border-radius: 20px;
+  box-shadow: 5px 5px 0px #326eb3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+  width: 280px; /* 各カードの幅固定 */
+}
+
+.work-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 10px 0px #2d629c;
+}
+
+
+/* ===== 自己紹介 / 名前 表示部分の修正 ===== */
+.header-intro {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  color: #000;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px 20px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 600;
+}
+
+/* /スラッシュ */
+.header-intro span {
+  color: #888;
+}
+
+/* 小さい画面（スマホなど）でも中央に残るように */
+@media screen and (max-width: 768px) {
+  .header-intro {
+    font-size: 20px;
+    padding: 6px 14px;
+    top: 15px;
+  }
+}
+
+/* ===== 主な作品の画像サイズ修正 ===== */
+.work-card img {
+  width: 100%;
+  max-width: 280px;   /* ✅ 固定最大幅を設定 */
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+/* カードコンテナの配置調整 */
+.works-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* ✅ 左寄せ→中央に変更（見た目が安定） */
+  gap: 40px;
+  padding: 20px;
+}
+
+.intro-content {
+  position: relative;
+  z-index: 10; /* 文字が三角形の上にくるように */
+}
+
+/* ====== イントロ画面が流れるように設定 ====== */
+#intro-section {
+  position: relative; /* stickyを削除 */
+  height: 100vh;
+  width: 100%;
+  background: #ffffff;
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* メインコンテンツはイントロが終わった後に配置 */
+#main-content {
+  position: relative;
+  background-color: #ffffff;
+  z-index: 20;
+  min-height: 101vh;
+  /* 最初のh1(元々のタイトル)が不要ならここで消す */
+  padding-top: 20px;
+}
+
+/* 三角形背景 */
+#geometric-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* 背景コンテナを最背面に配置 */
+#main-geometric-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* 各ページのbodyが背景を隠さないように透過させる */
+body {
+    background-color: #fff; /* または transparent */
+    position: relative;
+    min-height: 100vh;
+}
