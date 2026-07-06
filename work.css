@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+body{
+    font-family:sans-serif;
+    color:rgb(10,13,60);
+    background:white;
+}
+
+/* 見出し */
+
+h1.sub{
+    background:#EDEDED;
+    border-left:10px solid rgb(116,171,222);
+
+    padding:10px;
+    margin:25px 5px;
+
+    font-size:24px;
+}
+
+h2.sub{
+    padding:10px;
+    margin:25px 5px;
+}
+
+h3{
+    background:#EDEDED;
+    border-left:10px solid rgb(116,171,222);
+
+    padding:10px;
+    margin:5px;
+
+    font-size:22px;
+}
+
+/* 本文 */
+
+p.sub{
+    font-size:18px;
+    line-height:20px;
+    padding:0 50px;
+}
+
+p.back{
+    padding:0 20px;
+}
+
+footer{
+    padding:0 30px;
+}
+
+/* 画像 */
+
+img{
+    margin:0 15px;
+    box-shadow:0 0 6px #333;
+}
+
+video,
+iframe{
+    margin:0 20px;
+}
+
+/* ===== 時計 ===== */
+
+#clock-container{
+    position:fixed;
+    top:20px;
+    right:25px;
+
+    background:rgba(255,255,255,0.7);
+    padding:8px 14px;
+    border-radius:8px;
+
+    font-family:monospace;
+    text-align:center;
+
+    z-index:999;
+    box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+#clock{
+    font-size:20px;
+    color:#111;
+}
+
+#greeting{
+    font-size:14px;
+    color:#333;
+    margin-top:4px;
+    font-weight:bold;
+}
