@@ -1,4 +1,4 @@
-// index.js
+// id.js - Glassmorphism & Modern Tech Edition
 
 // リロード時の自動スクロール復元を無効にする
 if ('scrollRestoration' in history) {
@@ -7,13 +7,13 @@ if ('scrollRestoration' in history) {
 
 // ページ読み込み時に最上部へ移動
 window.scrollTo(0, 0);
+
 // -------------------------------
 // 背景にランダムな三角形を生成する関数
 // -------------------------------
 function createGeometricBackground() {
   const bgContainer = document.createElement("div");
   bgContainer.id = "geometric-bg";
-  // イントロセクションの中に配置
   const target = document.getElementById("intro-section");
   if (target) {
     target.prepend(bgContainer);
@@ -21,20 +21,19 @@ function createGeometricBackground() {
     document.body.prepend(bgContainer);
   }
 
-  const triangleCount = 40; // 生成する三角形の数
+  const triangleCount = 36;
   const colors = [
-    "rgba(74, 144, 226, 0.2)",  // 薄い青
-    "rgba(44, 108, 176, 0.15)", // 濃い青
-    "rgba(200, 200, 200, 0.1)", // グレー
-    "rgba(173, 216, 230, 0.2)"  // 水色
+    "rgba(59, 130, 246, 0.16)",
+    "rgba(14, 165, 233, 0.14)",
+    "rgba(99, 102, 241, 0.12)",
+    "rgba(125, 211, 252, 0.20)"
   ];
 
   for (let i = 0; i < triangleCount; i++) {
     const triangle = document.createElement("div");
     triangle.className = "bg-triangle";
-    
-    // ランダムなサイズ、位置、色を設定
-    const size = Math.random() * 200 + 100; // 100px〜300px
+
+    const size = Math.random() * 180 + 80;
     const top = Math.random() * 100;
     const left = Math.random() * 100;
     const rotation = Math.random() * 360;
@@ -59,101 +58,33 @@ function createGeometricBackground() {
 }
 
 // -------------------------------
-// 本文（メインコンテンツ）用の淡い背景を生成する関数
+// 本文（メインコンテンツ）用の淡い水彩・オーロラ背景を生成する関数
 // -------------------------------
-function createMainContentBackground(parent) {
-  const bgContainer = document.createElement("div");
-  bgContainer.id = "main-geometric-bg";
-  parent.prepend(bgContainer);
-  
-  const shapeCount = 15; // 本文用なので数は少なめに
-  const colors = [
-    "rgba(173, 216, 230, 0.1)", // 極めて薄い水色
-    "rgba(240, 248, 255, 0.15)", // アリスブルー
-    "rgba(224, 240, 255, 0.1)"  // 淡い青
-  ];
-
-  for (let i = 0; i < shapeCount; i++) {
-    const shape = document.createElement("div");
-    shape.className = "main-bg-shape";
-    
-    // 水彩画のような淡い広がりを出すための設定
-    const size = Math.random() * 400 + 300; // 300px〜700pxの大きな塊
-    const top = Math.random() * 100;
-    const left = Math.random() * 100;
-    const rotation = Math.random() * 360;
-    const color = colors[Math.floor(Math.random() * colors.length)];
-
-    Object.assign(shape.style, {
-      position: "absolute",
-      width: `${size}px`,
-      height: `${size}px`,
-      backgroundColor: color,
-      top: `${top}%`,
-      left: `${left}%`,
-      transform: `rotate(${rotation}deg)`,
-      filter: "blur(60px)", // ぼかしを強くして水彩風にする
-      borderRadius: "40% 60% 70% 30% / 40% 50% 60% 50%", // 歪んだ円
-      zIndex: "-1",
-      pointerEvents: "none"
-    });
-
-    bgContainer.appendChild(shape);
-  }
-}
-
-// 全ページ共通でメイン背景を生成する処理（index.html以外でも動くようにする）
-window.addEventListener("DOMContentLoaded", () => {
-  // すでに背景があるかチェック（二重生成防止）
-  if (document.getElementById("main-geometric-bg")) return;
-
-  // 背景色を判定（index.htmlなら青系、それ以外ならオレンジ系）
-  const isIndex = window.location.pathname === "/" || window.location.pathname.endsWith("index.html") || window.location.pathname.endsWith("/index.html");
-  
-  const orangeColors = [
-    "rgba(255, 165, 0, 0.08)",  // オレンジ
-    "rgba(255, 220, 150, 0.1)", // 薄いオレンジ
-    "rgba(255, 140, 0, 0.08)"   // 濃いめのオレンジ
-  ];
-  
-  const blueColors = [
-    "rgba(173, 216, 230, 0.1)",
-    "rgba(240, 248, 255, 0.15)",
-    "rgba(224, 240, 255, 0.1)"
-  ];
-
-  // 選ばれた色セットを引数に渡せるように createMainContentBackground を少し拡張して呼び出す
-  // ※ index.html の場合は mainContent 要素に、それ以外は body に直接入れる
-  if (!isIndex) {
-    applyThemedBackground(document.body, orangeColors);
-  }
-});
-
-// 既存の関数を少し拡張（色の配列を引数で受け取れるようにする）
 function applyThemedBackground(parent, colorSet) {
+  if (document.getElementById("main-geometric-bg")) return;
   const bgContainer = document.createElement("div");
   bgContainer.id = "main-geometric-bg";
   parent.prepend(bgContainer);
 
-  const shapeCount = 15;
+  const shapeCount = 14;
   for (let i = 0; i < shapeCount; i++) {
     const shape = document.createElement("div");
     shape.className = "main-bg-shape";
-    const size = Math.random() * 500 + 500;
-    const top = Math.random() * 120-10;
-    const left = Math.random() * 120-10;
+    const size = Math.random() * 420 + 340;
+    const top = Math.random() * 110 - 5;
+    const left = Math.random() * 110 - 5;
     const rotation = Math.random() * 360;
     const color = colorSet[Math.floor(Math.random() * colorSet.length)];
 
     Object.assign(shape.style, {
-      position: "fixed", // 画面全体に固定
+      position: "fixed",
       width: `${size}px`,
       height: `${size}px`,
       backgroundColor: color,
       top: `${top}%`,
       left: `${left}%`,
       transform: `rotate(${rotation}deg)`,
-      filter: "blur(60px)",
+      filter: "blur(68px)",
       borderRadius: "40% 60% 70% 30% / 40% 50% 60% 50%",
       zIndex: "-1",
       pointerEvents: "none"
@@ -163,41 +94,50 @@ function applyThemedBackground(parent, colorSet) {
 }
 
 // -------------------------------
-// ホーム画面用処理
+// 初期化処理（ホーム画面＆作品詳細ページ共通）
 // -------------------------------
 window.addEventListener("DOMContentLoaded", () => {
-
   const intro = document.getElementById("intro-section");
   const mainContent = document.getElementById("main-content");
 
-  if (!intro || !mainContent) return;
+  const blueColors = [
+    "rgba(59, 130, 246, 0.12)",
+    "rgba(14, 165, 233, 0.12)",
+    "rgba(165, 243, 252, 0.16)",
+    "rgba(99, 102, 241, 0.09)"
+  ];
 
-  // 背景生成
-  createGeometricBackground();
-  createMainContentBackground(mainContent);
+  const subPageColors = [
+    "rgba(56, 189, 248, 0.12)",
+    "rgba(59, 130, 246, 0.10)",
+    "rgba(251, 191, 36, 0.08)"
+  ];
 
-  // 初期状態
-  mainContent.style.opacity = "0";
-  mainContent.style.visibility = "hidden";
+  if (intro && mainContent) {
+    createGeometricBackground();
+    applyThemedBackground(mainContent, blueColors);
 
-const handleScroll = () => {
+    // Scroll ↓ クリックでメインコンテンツへスムーズスクロール
+    const scrollHint = intro.querySelector(".scroll-hint");
+    if (scrollHint) {
+      scrollHint.addEventListener("click", () => {
+        mainContent.scrollIntoView({ behavior: "smooth" });
+      });
+    }
 
-  if (window.scrollY > 180) {
+    // イントロの要素を削除せずスムーズにフェードさせることで画面ジャンプを防止
+    const updateScrollEffect = () => {
+      const y = window.scrollY;
+      const ratio = Math.min(1, Math.max(0, y / 420));
+      intro.style.opacity = String(1 - ratio * 0.85);
+      intro.style.transform = `translateY(${y * 0.18}px)`;
+    };
 
-    intro.style.transition = "opacity 0.8s ease";
-    intro.style.opacity = "0";
-
-    mainContent.style.visibility = "visible";
-    mainContent.style.opacity = "1";
-
-    setTimeout(() => {
-      intro.remove();
-    }, 800);
-
-    window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", updateScrollEffect, { passive: true });
+    updateScrollEffect();
+  } else {
+    applyThemedBackground(document.body, subPageColors);
   }
-};
-  window.addEventListener("scroll", handleScroll);
 });
 
 // -------------------------------
@@ -260,3 +200,84 @@ workLinks.forEach((link) => {
     setTimeout(() => ripple.remove(), 600);
   });
 });
+
+
+// -------------------------------
+// PWS Cup 2026 スライドビューア＆画像拡大ライトボックス
+// -------------------------------
+function initPwsInteractiveFeatures() {
+  const slides = document.querySelectorAll(".pws-slide-img");
+  const dots = document.querySelectorAll(".pws-dot");
+  const counter = document.getElementById("pws-slide-counter");
+  const prevBtn = document.getElementById("pws-prev-slide");
+  const nextBtn = document.getElementById("pws-next-slide");
+
+  if (slides.length > 0) {
+    let currentSlide = 0;
+    const showSlide = (idx) => {
+      currentSlide = (idx + slides.length) % slides.length;
+      slides.forEach((s, i) => {
+        s.classList.toggle("active-slide", i === currentSlide);
+      });
+      dots.forEach((d, i) => {
+        d.classList.toggle("active-dot", i === currentSlide);
+      });
+      if (counter) {
+        counter.textContent = `${currentSlide + 1} / ${slides.length}`;
+      }
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => showSlide(currentSlide - 1));
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => showSlide(currentSlide + 1));
+    }
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const targetIdx = parseInt(dot.getAttribute("data-slide-to") || "0", 10);
+        showSlide(targetIdx);
+      });
+    });
+  }
+
+  // 画像拡大ライトボックス
+  if (!document.getElementById("pws-lightbox")) {
+    const lb = document.createElement("div");
+    lb.id = "pws-lightbox";
+    const closeBtn = document.createElement("button");
+    closeBtn.type = "button";
+    closeBtn.id = "pws-lightbox-close";
+    closeBtn.textContent = "✕ 閉じる";
+    const lbImg = document.createElement("img");
+    lbImg.id = "pws-lightbox-img";
+    lbImg.alt = "拡大表示";
+    const lbCap = document.createElement("div");
+    lbCap.id = "pws-lightbox-caption";
+    lb.appendChild(closeBtn);
+    lb.appendChild(lbImg);
+    lb.appendChild(lbCap);
+    document.body.appendChild(lb);
+
+    const closeLightbox = () => lb.classList.remove("open");
+    lb.addEventListener("click", closeLightbox);
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeLightbox();
+    });
+
+    document.querySelectorAll(".zoomable-img").forEach((img) => {
+      img.addEventListener("click", () => {
+        lbImg.src = img.src;
+        lbCap.textContent = img.getAttribute("data-caption") || img.alt || "";
+        lb.classList.add("open");
+      });
+    });
+  }
+}
+
+if (document.readyState === "loading") {
+  window.addEventListener("DOMContentLoaded", initPwsInteractiveFeatures);
+} else {
+  initPwsInteractiveFeatures();
+}

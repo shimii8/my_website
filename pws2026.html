@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWS Cup 2026 発表記録 - チーム「ふてねこ」</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="work.css">
+</head>
+<body>
+    <p class="back"><a href="index.html">⇦自己紹介ページに戻る</a></p>
+
+    <div class="pws-hero-card">
+        <div class="pws-hero-badge-row">
+            <span class="pws-award-pill">🏆 総合 第4位 入賞</span>
+            <span class="pws-org-pill">一般社団法人 情報処理学会 コンピュータセキュリティ研究会 PWS組織委員会</span>
+        </div>
+        <h1 class="pws-hero-title">PWS Cup 2026（匿名化・属性推定コンテスト）</h1>
+        <p class="pws-hero-subtitle">発表テーマ：A_bgを使った合成と、加工に合わせた攻撃</p>
+        <div class="pws-meta-grid">
+            <div class="pws-meta-item">
+                <span class="pws-meta-label">チーム名</span>
+                <span class="pws-meta-value">ふてねこ（予備戦コホート3 / 本戦コホート22）</span>
+            </div>
+            <div class="pws-meta-item">
+                <span class="pws-meta-label">所属</span>
+                <span class="pws-meta-value">明治大学 総合数理学部 先端メディアサイエンス学科 菊池研究室</span>
+            </div>
+            <div class="pws-meta-item">
+                <span class="pws-meta-label">表彰日</span>
+                <span class="pws-meta-value">2026年10月20日</span>
+            </div>
+            <div class="pws-meta-item">
+                <span class="pws-meta-label">メンバー・担当</span>
+                <span class="pws-meta-value"><strong>谷 俊磨（リーダー）</strong>、髙瀬 歩、小泉 海斗、松口 虎白、関口 智大、菊池 浩明（指導教員）</span>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="sub">大会・発表概要</h1>
+    <p class="sub">
+        コンピュータセキュリティシンポジウム（CSS）に併催されるプライバシーワークショップ「PWS Cup 2026」に、明治大学 菊池研究室のチーム「ふてねこ」として出場し、<strong>総合第4位</strong>に入賞しました。<br>
+        チーム名「ふてねこ」は、研究室の伝統である「ステテコ」の語感を借りつつ、ジーンズ派である自身のスタイルと好きな「猫」を組み合わせて命名したものです。本大会ではチームのリーダーとして5分間プレゼンテーションにも登壇し、匿名加工フェーズと攻撃（メンバーシップ推定・属性推定）フェーズの双方におけるチームの取り組みを発表しました。
+    </p>
+
+    <h1 class="sub">受賞の様子・登壇フォトギャラリー</h1>
+    <h2 class="sub">画像をクリックすると拡大表示できます</h2>
+    <div class="pws-photo-grid">
+        <div class="pws-photo-card">
+            <img src="pws_team.jpg" alt="PWS Cup 2026 総合第4位 チームふてねこ記念撮影" class="zoomable-img" data-caption="PWS Cup 2026 総合第4位 表彰状とチーム「ふてねこ」記念撮影">
+            <div class="pws-photo-caption">
+                <strong>チーム「ふてねこ」受賞記念撮影</strong>
+                <span>総合第4位の賞状を手にチームメンバーと撮影</span>
+            </div>
+        </div>
+        <div class="pws-photo-card">
+            <img src="pws_stage.jpg" alt="5分間プレゼンテーション登壇の様子" class="zoomable-img" data-caption="会場ステージでの5分間プレゼンテーション登壇の様子（リーダー：谷 俊磨）">
+            <div class="pws-photo-caption">
+                <strong>5分間プレゼンテーション 登壇</strong>
+                <span>会場ステージにてリーダーとして手法を解説</span>
+            </div>
+        </div>
+        <div class="pws-photo-card">
+            <img src="pws_cert.png" alt="PWS2026 総合第4位 賞状" class="zoomable-img" data-caption="PWS2026 総合第4位 賞状（2026年10月20日 情報処理学会 PWS組織委員会）">
+            <div class="pws-photo-caption">
+                <strong>PWS2026 総合第4位 賞状</strong>
+                <span>情報処理学会 コンピュータセキュリティ研究会 PWS組織委員会より授与</span>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="sub">技術アプローチの要点（5つの柱）</h1>
+    <div class="pws-tech-grid">
+        <div class="pws-tech-card">
+            <div class="pws-tech-num">01</div>
+            <h4>予備戦の反省：合成データへの過信からの転換</h4>
+            <p>
+                予備戦ではコピュラ回帰＋Cox調整と山登り法で有用性改善に集中し、高有用性（U = 0.972）を得た一方、匿名性（Anon = 0.110）の検証が不足。本戦では「外れ値の生成方法の刷新」と「自己攻撃による事前点検」へ方針を大きく転換しました。
+            </p>
+        </div>
+        <div class="pws-tech-card">
+            <div class="pws-tech-num">02</div>
+            <h4>本戦の加工：外れ値を型別に分け背景データ A_bg で代用</h4>
+            <p>
+                多数派はBのコピュラから生成し、外れ値はBの希少ラベル（is_rare）で学習したランダムフォレスト（RF）で背景データ A_bg を「希少型」と「その他」に分類。Bの外れ値1人につき A_bg から4人を選び、共分散を対角へ縮めて広げた多変量正規分布から合成することで、Bの外れ値レコードを直接使わずに分布を再現しました。
+            </p>
+        </div>
+        <div class="pws-tech-card">
+            <div class="pws-tech-num">03</div>
+            <h4>自己攻撃：Bの二分割による事前リスク点検</h4>
+            <p>
+                元データBをB1（生成用）とB2（未使用）に二分割し、B1のみで合成データCを生成。MIA（B1とB2の判別）およびAIA（時刻推測）の計9種類の攻撃で点検し、有用性 U = 0.969 を維持したまま、希少MIAを偶然の基準（0.122）以下の 0.097 に抑えることを確認しました。
+            </p>
+        </div>
+        <div class="pws-tech-card">
+            <div class="pws-tech-num">04</div>
+            <h4>本戦の攻撃（希少MIA）：他コホートへの反応を引いて比較</h4>
+            <p>
+                BMI・TG・ALT・FPGにおいて背景データよりCに近い度合い E_k(x) を算出し、どの対象にも元々近い行を割り引くため S_k(x) = E_k(x) − max(他コホートのE) を導入。そのコホート特有の反応だけを浮かび上がらせることで、希少レコードの特定精度を高めました。
+            </p>
+        </div>
+        <div class="pws-tech-card">
+            <div class="pws-tech-num">05</div>
+            <h4>本戦の攻撃（AIA）：加工の変位に合わせて探索位置を補正</h4>
+            <p>
+                加工によって生じる「A_bgの基準点からCへの平均変位 δ」を推定し、推定対象 q を q' = q + 平均δ へとシフトさせてから20近傍の時刻の支持量を背景データと比較することで、加工のズレに追従する属性推定を実装しました。
+            </p>
+        </div>
+    </div>
+
+    <h1 class="sub">5分間プレゼンテーション資料（全7ページ）</h1>
+    <h2 class="sub">左右のボタンまたはサムネイルでスライドを切り替えられます（画像クリックで拡大）</h2>
+    <div class="pws-slider-card" id="pws-slider">
+        <div class="pws-slider-main">
+            <button type="button" class="pws-slider-btn prev" id="pws-prev-slide" aria-label="前のスライド">‹</button>
+            <div class="pws-slide-viewport">
+                <img src="pws_slide_1.png" alt="スライド 1: タイトル・チーム紹介" class="pws-slide-img active-slide zoomable-img" data-slide-idx="0" data-caption="スライド 1/7：PWS Cup 2026 チーム「ふてねこ」発表表紙">
+                <img src="pws_slide_2.png" alt="スライド 2: 01 予備戦の反省" class="pws-slide-img zoomable-img" data-slide-idx="1" data-caption="スライド 2/7：01 予備戦の反省 — 合成データへの過信">
+                <img src="pws_slide_3.png" alt="スライド 3: 02 本戦の加工" class="pws-slide-img zoomable-img" data-slide-idx="2" data-caption="スライド 3/7：02 本戦の加工 — 外れ値を型別に分け、背景データの似た人で代用">
+                <img src="pws_slide_4.png" alt="スライド 4: 03 自己攻撃" class="pws-slide-img zoomable-img" data-slide-idx="3" data-caption="スライド 4/7：03 自己攻撃 — 使った人を見分けられるか点検する">
+                <img src="pws_slide_5.png" alt="スライド 5: 04 本戦の攻撃 希少MIA" class="pws-slide-img zoomable-img" data-slide-idx="4" data-caption="スライド 5/7：04 本戦の攻撃 — 希少MIA：他コホートへの反応を引いて比較する">
+                <img src="pws_slide_6.png" alt="スライド 6: 05 本戦の攻撃 AIA" class="pws-slide-img zoomable-img" data-slide-idx="5" data-caption="スライド 6/7：05 本戦の攻撃 — AIA：加工の変位に合わせて探す位置を動かす">
+                <img src="pws_slide_7.png" alt="スライド 7: まとめ" class="pws-slide-img zoomable-img" data-slide-idx="6" data-caption="スライド 7/7：まとめ — A_bgを使った合成と、加工に合わせた攻撃">
+            </div>
+            <button type="button" class="pws-slider-btn next" id="pws-next-slide" aria-label="次のスライド">›</button>
+        </div>
+        <div class="pws-slider-footer">
+            <span class="pws-slide-counter" id="pws-slide-counter">1 / 7</span>
+            <div class="pws-slider-dots" id="pws-slider-dots">
+                <button type="button" class="pws-dot active-dot" data-slide-to="0">1. 表紙</button>
+                <button type="button" class="pws-dot" data-slide-to="1">2. 予備戦の反省</button>
+                <button type="button" class="pws-dot" data-slide-to="2">3. 本戦の加工</button>
+                <button type="button" class="pws-dot" data-slide-to="3">4. 自己攻撃</button>
+                <button type="button" class="pws-dot" data-slide-to="4">5. 希少MIA</button>
+                <button type="button" class="pws-dot" data-slide-to="5">6. 変位補正AIA</button>
+                <button type="button" class="pws-dot" data-slide-to="6">7. まとめ</button>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="sub">A0ポスター発表資料</h1>
+    <h2 class="sub">ポスター画像をクリックすると高解像度で拡大表示できます</h2>
+    <div class="pws-poster-container">
+        <img src="pws_poster.png" alt="PWS Cup 2026 A0ポスター：A_bgを使った合成と、加工に合わせた攻撃" class="pws-poster-img zoomable-img" data-caption="PWS Cup 2026 A0ポスター（チーム名：ふてねこ / 本戦コホート番号：22）">
+    </div>
+
+    <hr>
+    <footer>本内容の著作権は谷俊磨に属します。/ Copyright&copy;Shunma Tani</footer>
+</body>
+</html>
+<script src="id.js"></script>
