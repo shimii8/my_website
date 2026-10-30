@@ -392,6 +392,12 @@ p.main {
     color: var(--primary);
 }
 
+.work-subtitles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
 .work-info p {
     margin: 0;
     display: inline-block;
@@ -741,4 +747,11 @@ footer {
         gap: 18px;
         padding: 18px;
     }
+}
+
+
+/* ===== GCI 2026 Summer バッジ（index.html） ===== */
+.award-badge.gci-badge {
+    background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
+    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.35);
 }

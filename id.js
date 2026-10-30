@@ -206,40 +206,42 @@ workLinks.forEach((link) => {
 // PWS Cup 2026 スライドビューア＆画像拡大ライトボックス
 // -------------------------------
 function initPwsInteractiveFeatures() {
-  const slides = document.querySelectorAll(".pws-slide-img");
-  const dots = document.querySelectorAll(".pws-dot");
-  const counter = document.getElementById("pws-slide-counter");
-  const prevBtn = document.getElementById("pws-prev-slide");
-  const nextBtn = document.getElementById("pws-next-slide");
+  document.querySelectorAll(".pws-slider-card").forEach((sliderCard) => {
+    const slides = sliderCard.querySelectorAll(".pws-slide-img");
+    const dots = sliderCard.querySelectorAll(".pws-dot");
+    const counter = sliderCard.querySelector(".pws-slide-counter");
+    const prevBtn = sliderCard.querySelector(".pws-slider-btn.prev");
+    const nextBtn = sliderCard.querySelector(".pws-slider-btn.next");
 
-  if (slides.length > 0) {
-    let currentSlide = 0;
-    const showSlide = (idx) => {
-      currentSlide = (idx + slides.length) % slides.length;
-      slides.forEach((s, i) => {
-        s.classList.toggle("active-slide", i === currentSlide);
-      });
-      dots.forEach((d, i) => {
-        d.classList.toggle("active-dot", i === currentSlide);
-      });
-      if (counter) {
-        counter.textContent = `${currentSlide + 1} / ${slides.length}`;
+    if (slides.length > 0) {
+      let currentSlide = 0;
+      const showSlide = (idx) => {
+        currentSlide = (idx + slides.length) % slides.length;
+        slides.forEach((s, i) => {
+          s.classList.toggle("active-slide", i === currentSlide);
+        });
+        dots.forEach((d, i) => {
+          d.classList.toggle("active-dot", i === currentSlide);
+        });
+        if (counter) {
+          counter.textContent = `${currentSlide + 1} / ${slides.length}`;
+        }
+      };
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", () => showSlide(currentSlide - 1));
       }
-    };
-
-    if (prevBtn) {
-      prevBtn.addEventListener("click", () => showSlide(currentSlide - 1));
-    }
-    if (nextBtn) {
-      nextBtn.addEventListener("click", () => showSlide(currentSlide + 1));
-    }
-    dots.forEach((dot) => {
-      dot.addEventListener("click", () => {
-        const targetIdx = parseInt(dot.getAttribute("data-slide-to") || "0", 10);
-        showSlide(targetIdx);
+      if (nextBtn) {
+        nextBtn.addEventListener("click", () => showSlide(currentSlide + 1));
+      }
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const targetIdx = parseInt(dot.getAttribute("data-slide-to") || "0", 10);
+          showSlide(targetIdx);
+        });
       });
-    });
-  }
+    }
+  });
 
   // 画像拡大ライトボックス
   if (!document.getElementById("pws-lightbox")) {
